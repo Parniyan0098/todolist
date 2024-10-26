@@ -1,7 +1,18 @@
+import { useState } from "react";
 export default function AddNewHabit() {
+  const [habit, setHabit] = useState("");
+  const [habits, setHabits] = useState([]);
+  function addNewHabit(e) {
+    setHabit(e.target.value);
+  }
+  function addHabitList() {
+    if (habit?.trim()) setHabits(...habits, habit);
+    setHabit("");
+  }
   return (
     <>
-      <p>helooe </p>
+      <input type="text" value={habit} onChange={addNewHabit} />
+      <button onClick={addHabitList}>Add your new habit</button>
     </>
   );
 }
