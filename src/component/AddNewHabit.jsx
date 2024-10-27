@@ -23,6 +23,13 @@ export default function AddNewHabit() {
       addHabitList();
     }
   }
+  function handleDelet(index) {
+    if (window.confirm("are you sure?")) {
+      const updatedHabits = habits.filter((_, i) => i !== index);
+      setHabits(updatedHabits);
+      localStorage.setItem("habits", JSON.stringify(updatedHabits));
+    }
+  }
   useEffect(() => {
     const storedHabits = JSON.parse(localStorage.getItem("habits")) || [];
     setHabits(storedHabits);
@@ -38,7 +45,7 @@ export default function AddNewHabit() {
       />
       <button onClick={addHabitList}>Add your new habit</button>
       {error && <p style={{ color: "red" }}>{error}</p>}
-      <HabitList habits={habits} />
+      <HabitList habits={habits} onDelete={handleDelet} />
     </>
   );
 }
