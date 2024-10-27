@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Indie Flower", cursive;
+  background: linear-gradient(0deg, #005aa7, #f0f2f0);
+  color: #333;
+  font-size: 16px;
+  height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 4em;
+  height: 80vh;
+  max-height: 80vh;
+  background-color: white;
+  border-radius: 0.9em;
+  box-shadow: 0 0.25em 1.4emx rgba(0, 0, 0, 0.2);
+  padding: 2em;
+  width: 18.75em;
+  max-width: 90%;
+}

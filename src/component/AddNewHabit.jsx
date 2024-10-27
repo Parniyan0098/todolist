@@ -36,7 +36,7 @@ export default function AddNewHabit() {
   }, []);
 
   return (
-    <>
+    <div className="main-container">
       <input
         type="text"
         value={habit}
@@ -46,6 +46,6 @@ export default function AddNewHabit() {
       <button onClick={addHabitList}>Add your new habit</button>
       {error && <p style={{ color: "red" }}>{error}</p>}
       <HabitList habits={habits} onDelete={handleDelet} />
-    </>
+    </div>
   );
 }

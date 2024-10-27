@@ -13,7 +13,10 @@ export default function HabitList({ habits, onDelete }) {
         <ul>
           {habits.map((h, i) => (
             <li key={i}>
-              {h} <button onClick={() => onDelete(i)}>delete</button>
+              {h}{" "}
+              <button aria-label={`delete ${h}`} onClick={() => onDelete(i)}>
+                delete
+              </button>
             </li>
           ))}
         </ul>
