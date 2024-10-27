@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HabitList from "./HabitList";
 export default function AddNewHabit() {
   const [habit, setHabit] = useState("");
@@ -10,8 +10,10 @@ export default function AddNewHabit() {
   }
   function addHabitList() {
     if (habit?.trim()) {
-      setHabits([...habits, habit]);
+      const updatedHabits = [...habits, habit];
+      setHabits(updatedHabits);
       setHabit("");
+      localStorage.setItem("habits", JSON.stringify(updatedHabits));
     } else {
       setError("please enter your habit");
     }
@@ -21,6 +23,11 @@ export default function AddNewHabit() {
       addHabitList();
     }
   }
+  useEffect(() => {
+    const storedHabits = JSON.parse(localStorage.getItem("habits")) || [];
+    setHabits(storedHabits);
+  }, []);
+
   return (
     <>
       <input
