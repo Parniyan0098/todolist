@@ -8,13 +8,16 @@ export default function HabitList({ habits, onDelete }) {
   return (
     <div>
       {habits.length === 0 ? (
-        <p>No habits yet. Start adding some!</p>
+        <p>No task yet. Start adding some!</p>
       ) : (
         <ul>
-          {habits.map((h, i) => (
+          {habits.map((habit, i) => (
             <li key={i}>
-              {h}{" "}
-              <button aria-label={`delete ${h}`} onClick={() => onDelete(i)}>
+              {habit}{" "}
+              <button
+                aria-label={`delete ${habit}`}
+                onClick={() => onDelete(i)}
+              >
                 delete
               </button>
             </li>
