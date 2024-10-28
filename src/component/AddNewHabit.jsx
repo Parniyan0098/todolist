@@ -40,7 +40,7 @@ export default function AddNewHabit() {
   }
   function handleDeleteAll() {
     if (window.confirm("You will delete all you list,are you sure?"))
-      setHabits("");
+      setHabits([]);
     localStorage.removeItem("habits");
   }
 
@@ -52,19 +52,25 @@ export default function AddNewHabit() {
   return (
     <>
       <div className="main-container">
-        <h1>To Do List</h1>
         <p className="date">{currentDate}</p>
-
-        <input
-          type="text"
-          value={habit}
-          onChange={addNewHabit}
-          onKeyDown={handleKeyDown}
-        />
-        <button onClick={addHabitList}>Add your new task</button>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <HabitList habits={habits} onDelete={handleDelete} />
-        <button onClick={handleDeleteAll}>Delet all your list</button>
+        <hr className="divider" />
+        <div className="container">
+          <h1>To Do List</h1>
+          <input
+            type="text"
+            value={habit}
+            onChange={addNewHabit}
+            onKeyDown={handleKeyDown}
+          />
+          <button className="btn-add" onClick={addHabitList}>
+            Add your new task
+          </button>
+          {error && <p className="error-message ">{error}</p>}
+          <HabitList habits={habits} onDelete={handleDelete} />
+        </div>
+        <button className="btn-delete-all" onClick={handleDeleteAll}>
+          Reset your list
+        </button>
       </div>
     </>
   );
